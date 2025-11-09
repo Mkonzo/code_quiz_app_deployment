@@ -1,38 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
+  <meta name="description" content="Code Quiz - Master programming one question at a time">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0F172A">
+  
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="code_quiz_app">
+  <meta name="apple-mobile-web-app-title" content="Code Quiz">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>code_quiz_app</title>
+  <title>Code Quiz - Programming Challenge</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #0F172A 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      z-index: 9999;
+    }
+    
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #3B82F6;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    .app-title {
+      font-size: 2.5rem;
+      margin: 0;
+      background: linear-gradient(45deg, #60A5FA, #A78BFA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .app-subtitle {
+      font-size: 1.1rem;
+      color: #CBD5E1;
+      margin: 10px 0 30px 0;
+    }
+    
+    .loading-text {
+      margin-top: 20px;
+      color: #94A3B8;
+    }
+  </style>
 </head>
 <body>
+  <!-- Custom Loading Screen -->
+  <div id="loading">
+    <div style="font-size: 60px; margin-bottom: 20px;">💻</div>
+    <h1 class="app-title">Code Quiz</h1>
+    <p class="app-subtitle">Master programming one question at a time</p>
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading your coding journey...</p>
+  </div>
+
   <script src="flutter_bootstrap.js" async></script>
+
+  <script>
+    // Hide loading screen when Flutter app is ready
+    window.addEventListener('flutter-first-frame', function() {
+      document.getElementById('loading').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
