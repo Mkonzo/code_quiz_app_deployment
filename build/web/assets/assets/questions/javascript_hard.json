@@ -1,0 +1,74 @@
+{
+  "questions": [
+    {
+      "id": "js_hard_1",
+      "question": "What is the output?",
+      "codeSnippet": "console.log(0.1 + 0.2 === 0.3);",
+      "options": ["true", "false", "undefined", "Error"],
+      "correctAnswer": 1,
+      "explanation": "Due to floating-point precision issues, 0.1 + 0.2 equals 0.30000000000000004, not exactly 0.3. This is a common issue in many programming languages.",
+      "type": "output",
+      "language": "javascript",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Floating Point"
+    },
+    {
+      "id": "js_hard_2",
+      "question": "What will be logged?",
+      "codeSnippet": "for (var i = 0; i < 3; i++) {\n    setTimeout(() => console.log(i), 0);\n}\n// Output order?",
+      "options": ["0 1 2", "3 3 3", "undefined", "Error"],
+      "correctAnswer": 1,
+      "explanation": "var is function-scoped. By the time setTimeout callbacks execute, the loop has finished and i is 3. All three callbacks log 3. Using let would fix this.",
+      "type": "output",
+      "language": "javascript",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Closures & Scope"
+    },
+    {
+      "id": "js_hard_3",
+      "question": "What is the output?",
+      "codeSnippet": "const obj = {\n    a: 1,\n    b: function() { return this.a; },\n    c: () => this.a\n};\nconsole.log(obj.b() === obj.c());",
+      "options": ["true", "false", "undefined", "Error"],
+      "correctAnswer": 1,
+      "explanation": "Regular functions have their own 'this' context (obj), but arrow functions inherit 'this' from their enclosing scope (likely window/undefined). obj.b() returns 1, obj.c() returns undefined.",
+      "type": "output",
+      "language": "javascript",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Arrow Functions"
+    },
+    {
+      "id": "js_hard_4",
+      "question": "What will this output?",
+      "codeSnippet": "console.log(typeof typeof 1);",
+      "options": ["number", "string", "undefined", "object"],
+      "correctAnswer": 1,
+      "explanation": "typeof 1 returns 'number' (a string). typeof 'number' returns 'string'. The typeof operator always returns a string.",
+      "type": "output",
+      "language": "javascript",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Operators"
+    },
+    {
+      "id": "js_hard_5",
+      "question": "What is the time complexity of this operation?",
+      "codeSnippet": "const arr = [1, 2, 3, 4, 5];\narr.splice(2, 1);",
+      "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+      "correctAnswer": 1,
+      "explanation": "Array.splice() has O(n) time complexity because it needs to shift all elements after the removed element to fill the gap.",
+      "type": "complexity",
+      "language": "javascript",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Algorithm Complexity"
+    }
+  ]
+}

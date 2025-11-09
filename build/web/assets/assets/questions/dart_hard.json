@@ -1,0 +1,74 @@
+{
+  "questions": [
+    {
+      "id": "dart_hard_1",
+      "question": "What is the output?",
+      "codeSnippet": "Future<int> getValue() async {\n  return 42;\n}\nvoid main() {\n  print(getValue());\n}",
+      "options": ["42", "Instance of 'Future<int>'", "null", "Error"],
+      "correctAnswer": 1,
+      "explanation": "Without await, getValue() returns a Future object, not the actual value. To get 42, you need to use await or then().",
+      "type": "output",
+      "language": "dart",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Asynchronous Programming"
+    },
+    {
+      "id": "dart_hard_2",
+      "question": "What will be printed?",
+      "codeSnippet": "Stream<int> countStream() async* {\n  for (int i = 1; i <= 3; i++) {\n    yield i;\n  }\n}\nvoid main() async {\n  await for (var value in countStream()) {\n    print(value);\n  }\n}\n// What is printed?",
+      "options": ["1", "1 2 3", "3", "Error"],
+      "correctAnswer": 1,
+      "explanation": "async* creates a Stream generator. yield produces values asynchronously. The await for loop prints each value: 1, 2, 3.",
+      "type": "output",
+      "language": "dart",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Streams"
+    },
+    {
+      "id": "dart_hard_3",
+      "question": "What is the output?",
+      "codeSnippet": "class Base {\n  void show() => print('Base');\n}\nclass Child extends Base {\n  @override\n  void show() => print('Child');\n}\nvoid main() {\n  Base obj = Child();\n  obj.show();\n}",
+      "options": ["Base", "Child", "Error", "BaseChild"],
+      "correctAnswer": 1,
+      "explanation": "Dart uses dynamic dispatch for method calls. Even though obj is declared as Base, it references a Child instance, so Child's show() is called.",
+      "type": "output",
+      "language": "dart",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Polymorphism"
+    },
+    {
+      "id": "dart_hard_4",
+      "question": "What will be the result?",
+      "codeSnippet": "void main() {\n  var list = [1, 2, 3];\n  var list2 = list;\n  list2[0] = 10;\n  print(list[0]);\n}",
+      "options": ["1", "10", "Error", "null"],
+      "correctAnswer": 1,
+      "explanation": "Lists are reference types in Dart. list2 references the same list as list, so modifying list2[0] also changes list[0] to 10.",
+      "type": "output",
+      "language": "dart",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "References"
+    },
+    {
+      "id": "dart_hard_5",
+      "question": "What is the output?",
+      "codeSnippet": "class Counter {\n  static int count = 0;\n  Counter() {\n    count++;\n  }\n}\nvoid main() {\n  Counter();\n  Counter();\n  print(Counter.count);\n}",
+      "options": ["0", "1", "2", "Error"],
+      "correctAnswer": 2,
+      "explanation": "Static variables are shared across all instances. Each time a Counter is created, count increments. After two creations, count is 2.",
+      "type": "output",
+      "language": "dart",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Static Members"
+    }
+  ]
+}

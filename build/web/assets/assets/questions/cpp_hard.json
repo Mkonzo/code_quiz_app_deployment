@@ -1,0 +1,74 @@
+{
+  "questions": [
+    {
+      "id": "cpp_hard_1",
+      "question": "What is the space complexity?",
+      "codeSnippet": "void recursiveSum(int n) {\n    if (n <= 0) return;\n    recursiveSum(n - 1);\n}",
+      "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+      "correctAnswer": 2,
+      "explanation": "Each recursive call adds a stack frame. With n calls, the call stack grows to size n, resulting in O(n) space complexity.",
+      "type": "complexity",
+      "language": "cpp",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Algorithm Complexity"
+    },
+    {
+      "id": "cpp_hard_2",
+      "question": "What is the output?",
+      "codeSnippet": "class Base {\npublic:\n    void print() { cout << \"Base\"; }\n};\nclass Derived : public Base {\npublic:\n    void print() { cout << \"Derived\"; }\n};\nBase *ptr = new Derived();\nptr->print();",
+      "options": ["Base", "Derived", "Error", "Both"],
+      "correctAnswer": 0,
+      "explanation": "Without the 'virtual' keyword, this is static binding. The compiler uses the pointer type (Base*) to determine which function to call, so Base's print() is called.",
+      "type": "output",
+      "language": "cpp",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Polymorphism"
+    },
+    {
+      "id": "cpp_hard_3",
+      "question": "What will be the output?",
+      "codeSnippet": "int x = 5;\nint *p = &x;\nint **pp = &p;\n**pp = 10;\ncout << x;",
+      "options": ["5", "10", "Error", "Address"],
+      "correctAnswer": 1,
+      "explanation": "pp is a pointer to pointer. *pp gets p (pointer to x), **pp gets x itself. Assigning **pp = 10 changes x to 10.",
+      "type": "output",
+      "language": "cpp",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Pointer to Pointer"
+    },
+    {
+      "id": "cpp_hard_4",
+      "question": "What is the bug in this code?",
+      "codeSnippet": "int* createArray() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    return arr;\n}",
+      "options": ["No bug", "Returning local array", "Wrong syntax", "Memory leak"],
+      "correctAnswer": 1,
+      "explanation": "arr is a local array that gets destroyed when the function returns. Returning a pointer to it creates a dangling pointer. Use dynamic allocation or return by value.",
+      "type": "debug",
+      "language": "cpp",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Memory Management"
+    },
+    {
+      "id": "cpp_hard_5",
+      "question": "What will be printed?",
+      "codeSnippet": "class A {\npublic:\n    A() { cout << \"A\"; }\n    A(const A &obj) { cout << \"B\"; }\n};\nA obj1;\nA obj2 = obj1;",
+      "options": ["A", "AB", "AA", "B"],
+      "correctAnswer": 1,
+      "explanation": "obj1 is created using the default constructor (prints 'A'). obj2 is created using the copy constructor (prints 'B'). Output: AB",
+      "type": "output",
+      "language": "cpp",
+      "difficulty": "hard",
+      "points": 30,
+      "timeLimit": 30,
+      "category": "Copy Constructor"
+    }
+  ]
+}
